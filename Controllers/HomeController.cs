@@ -23,6 +23,11 @@ namespace LaytonTempleTours.Controllers
             return View();
         }
 
+        public IActionResult ViewAppointments()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
