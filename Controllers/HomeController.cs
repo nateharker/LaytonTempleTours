@@ -25,17 +25,17 @@ namespace LaytonTempleTours.Controllers
 
         public IActionResult ViewAppointments()
         {
-            return View();
+            return View(); //Dsiplay all of the appointments made in the list
         }
 
         public IActionResult Form()
         {
-            return View();
+            return View(); 
         }
 
         public IActionResult SignUp()
         {
-            return View();
+            return View(); //Filter times shown here by the boolean of if the slot has been booked or not
         }
 
         public IActionResult Privacy()
