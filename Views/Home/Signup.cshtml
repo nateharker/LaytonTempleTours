@@ -1,5 +1,22 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@*put the name of the model here*@
+@*going to list thru all the available times*@
+@model IEnumerable<somethinghere>
+
+@*Sign Up Page: This page will display the available times. Ignore the time slots on the
+    SignUpGenius page. For our purposes, we will say the tours occur every hour on the
+    hour from 8:00 am – 8:00 pm (i.e. the last tour starts at 8:00 pm.) Once the user selects a
+    time, they are routed to a form that has the date info set, but allows the user to enter their
+    info.*@
+
+<body>
+    <h1>Sign up for time slots below</h1>
+
+    @*list to print out available times from the model*@
+    <ul>
+        @foreach (var x in Model)
+            {
+                @*pass in variable names for the date and the time*@
+                <li>@x.Day, @x.Time</li>
+            }
+    </ul>
+</body>

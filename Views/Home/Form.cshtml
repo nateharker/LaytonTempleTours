@@ -2,8 +2,40 @@
 @{
 }
 
-form page
-
 @*this is a form page I made -Mallory*@
 
-can u see this
+@*Form: Once the user has selected a time, they will fill out a form that has the time set
+    (i.e. part of the form, but not editable), but also allows the user to enter their information:
+    o Name of Group
+    o Size of Group
+    o Email Address
+    o Phone Number (Optional)
+    When the user submits the data, we want to store their contact information and update the
+    database to show that time slot as taken. After submitting the form, the user should be
+    returned to the Home Page.*@
+
+@*x will auto fill from previous date and time chosen on sign up page*@
+this is the form for x time on x date
+<br />
+<form>
+    @*attach to the DB so these pass thru*@
+    <label>Name of Group</label>
+    <input />
+    <br />
+
+    <label>Size of Group</label>
+    <input />
+    <br />
+
+    <label>Email Address</label>
+    <input />
+    <br />
+
+    <label>Phone Number</label>
+    <input />
+    <br />
+
+    @*pass info thru to DB*@
+    <button type="submit">Submit</button>
+
+</form>
