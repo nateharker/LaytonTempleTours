@@ -8,11 +8,11 @@ namespace LaytonTempleTours.Models
 {
     public class GroupInfo
     {
-        [Required]
+        [Required (ErrorMessage ="Please enter a group name.")]
         string Name { get; set; }
-        [Required]
+        [Required (ErrorMessage = "Please enter a group size.")]
         int Size { get; set; }
-        [Required]
+        [Required (ErrorMessage = "Please enter an email address.")]
         [EmailAddress]
         string Email { get; set; }
         [Phone]
