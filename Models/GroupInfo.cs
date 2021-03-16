@@ -17,5 +17,6 @@ namespace LaytonTempleTours.Models
         string Email { get; set; }
         [Phone]
         string PhoneNumber { get; set; }
+        DateTime TimeSlot { get; set; }
     }
 }
