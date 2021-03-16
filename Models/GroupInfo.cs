@@ -9,14 +9,14 @@ namespace LaytonTempleTours.Models
     public class GroupInfo
     {
         [Required (ErrorMessage ="Please enter a group name.")]
-        string Name { get; set; }
+        public string Name { get; set; }
         [Required (ErrorMessage = "Please enter a group size.")]
-        int Size { get; set; }
+        public int Size { get; set; }
         [Required (ErrorMessage = "Please enter an email address.")]
         [EmailAddress]
-        string Email { get; set; }
+        public string Email { get; set; }
         [Phone]
-        string PhoneNumber { get; set; }
-        DateTime TimeSlot { get; set; }
+        public string PhoneNumber { get; set; }
+        public DateTime TimeSlot { get; set; }
     }
 }
