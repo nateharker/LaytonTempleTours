@@ -1,6 +1,7 @@
 ﻿@*put the name of the model here*@
 @*going to list thru all the available times*@
-@model IEnumerable<somethinghere>
+
+@*I commented this out because the program wouldn't build with it in. -Miles -->  @model IEnumerable<somethinghere>*@
 
 @*Sign Up Page: This page will display the available times. Ignore the time slots on the
     SignUpGenius page. For our purposes, we will say the tours occur every hour on the
@@ -14,9 +15,9 @@
     @*list to print out available times from the model*@
     <ul>
         @foreach (var x in Model)
-            {
-                @*pass in variable names for the date and the time*@
-                <li>@x.Day, @x.Time</li>
-            }
+        {
+            @*pass in variable names for the date and the time*@
+            <li>@x.Day, @x.Time</li>
+        }
     </ul>
 </body>

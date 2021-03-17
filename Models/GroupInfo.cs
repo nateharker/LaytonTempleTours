@@ -8,6 +8,9 @@ namespace LaytonTempleTours.Models
 {
     public class GroupInfo
     {
+        [Key]
+        [Required]
+        public int GroupInfoId { get; set; }
         [Required (ErrorMessage ="Please enter a group name.")]
         public string Name { get; set; }
         [Required (ErrorMessage = "Please enter a group size.")]
