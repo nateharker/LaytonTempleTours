@@ -31,6 +31,12 @@ namespace LaytonTempleTours.Controllers
             return View(_context.GroupInfos); //Dsiplay all of the appointments made in the list
         }
 
+        [HttpGet]
+        public IActionResult Form()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Form(GroupInfo group)
         {
