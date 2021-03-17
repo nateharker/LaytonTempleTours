@@ -59,6 +59,7 @@ namespace LaytonTempleTours.Controllers
         [HttpPost]
         public IActionResult SignUp(AvailableTime time)
         {
+            time.SlotBooked = true;
             return View("Form", time);
         }
 
