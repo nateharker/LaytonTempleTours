@@ -31,12 +31,6 @@ namespace LaytonTempleTours.Controllers
             return View(_context.GroupInfos); //Dsiplay all of the appointments made in the list
         }
 
-        [HttpGet]
-        public IActionResult Form(AvailableTime time)
-        {
-            return View(time); //This is the time that should be passed in when somebody selects an available time
-        }
-
         [HttpPost]
         public IActionResult Form(GroupInfo group)
         {
@@ -48,11 +42,18 @@ namespace LaytonTempleTours.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult SignUp()
         {
             return View(_context.AvailableTimes
                 .Where(x => x.SlotBooked == false)
                 .OrderBy(x => x.AvailableTimeId)); //Filter times shown here by the boolean of if the slot has been booked or not
+        }
+
+        [HttpPost]
+        public IActionResult SignUp(AvailableTime time)
+        {
+            return View("Form", time);
         }
 
         public IActionResult Privacy()
