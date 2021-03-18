@@ -1,16 +1,12 @@
-﻿@*@model LaytonTempleTours.Models.AvailableTime*@
-
-@*@model LaytonTempleTours.Models.ViewModels.TourViewModel*@
+﻿@*pulls in the group info model*@
 @model LaytonTempleTours.Models.GroupInfo
 
 
-@*x will auto fill from previous date and time chosen on sign up page*@
-@*this is the form for @Model.AppointementTime*@
+@*form for people to put in group info*@
 <br />
 <form asp-action="Form" method="post">
 
-    @*attach to partialForm*@
-    @*partial view!*@
+    @*pulls the timeslot info chosen from the list on the sign up page*@
     <label asp-for="TimeSlot">Time:</label>
     <input value="@ViewBag.SelectedTime" id="TimeSlot" name="TimeSlot" readonly />
     <br />
@@ -33,6 +29,5 @@
 
     <button type="submit">Submit</button>
     <div asp-validation-summary="All"></div>
-    @*return the user to the home page*@
 
 </form>
