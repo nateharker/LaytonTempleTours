@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LaytonTempleTours.Models
 {
+    //Model that saves group information when group signs up for time slot
     public class GroupInfo
     {
         [Key]
