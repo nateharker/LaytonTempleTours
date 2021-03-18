@@ -5,6 +5,7 @@
     ViewBag.Title = "Scheduled Appointments";
 
 }
+@*bring in the class from the viewmodels folder*@
 @model LaytonTempleTours.Models.ViewModels.TourViewModel
 <div>
     <h2>Here are the submitted appointments.</h2>   
@@ -20,6 +21,7 @@
             </tr>
         </thead>
         <tbody>
+@*iterate through the groupinfos ienummerable object*@
             @foreach ( var x in Model.GroupInfos){ 
 
             <tr>
