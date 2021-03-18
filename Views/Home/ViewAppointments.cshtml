@@ -5,7 +5,7 @@
     ViewBag.Title = "Scheduled Appointments";
 
 }
-@model GroupInfo
+@model LaytonTempleTours.Models.ViewModels.TourViewModel
 <div>
     <h2>Here are the submitted appointments.</h2>   
     <table  class="table table-striped">
@@ -20,18 +20,19 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ( var x in Model.GroupInfos){ 
 
-          
-                <tr>
-                    <td>@Model.TimeSlot</td>
-                    <td>@Model.Name</td>
-                    <td>@Model.Size</td>
-                    <td>@Model.Email</td>
-                    <td>@Model.PhoneNumber</td>
+            <tr>
 
-                </tr>
-            
+                <td>@x.TimeSlot</td>
+                <td>@x.Name</td>
+                <td>@x.Size</td>
+                <td>@x.Email</td>
+                <td>@x.PhoneNumber</td>
 
+            </tr>
+
+            }
         </tbody>
     </table>
 </div>
