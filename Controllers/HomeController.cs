@@ -59,6 +59,7 @@ namespace LaytonTempleTours.Controllers
                 return View("Index");//Redirect to the home page if successful
             }
             else {
+                ViewBag.SelectedTime = group.TimeSlot;
                 return View(); //If model state is invalid, return form view again, with data validation summary
             }
             
