@@ -50,7 +50,7 @@ namespace LaytonTempleTours.Controllers
                 _context.GroupInfos.Add(group);
                 _context.SaveChanges();
             }
-            return View();
+            return View("Index");
         }
 
         [HttpGet]
@@ -63,14 +63,14 @@ namespace LaytonTempleTours.Controllers
                 .OrderBy(x => x.AvailableTimeId), //Filter times shown here by the boolean of if the slot has been booked or not
                 GroupInfos = _context.GroupInfos
             });
-
         }
 
         [HttpPost]
         public IActionResult SignUp(AvailableTime time)
         {
+            ViewBag.SelectedTime = time.AppointementTime;
             time.SlotBooked = true;
-            return View("Form", time);
+            return View("Form");
         }
 
         public IActionResult Privacy()
