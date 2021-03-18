@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LaytonTempleTours.Models
 {
+    //Model that stores all available tour time slots
     public class AvailableTime
     {
         [Key]

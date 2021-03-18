@@ -1,38 +1,53 @@
-﻿@*@model LaytonTempleTours.Models.AvailableTime*@
-
-@*@model LaytonTempleTours.Models.ViewModels.TourViewModel*@
+﻿@*pulls in the group info model*@
 @model LaytonTempleTours.Models.GroupInfo
 
 
-@*x will auto fill from previous date and time chosen on sign up page*@
-@*this is the form for @Model.AppointementTime*@
+@*form for people to put in group info*@
 <br />
-<form asp-action="Form" method="post">
+<form class="form-horizontal" asp-action="Form" method="post">
 
-    @*attach to partialForm*@
-    @*partial view!*@
-    <label asp-for="TimeSlot">Time:</label>
-    <input value="@ViewBag.SelectedTime" id="TimeSlot" name="TimeSlot" readonly />
-    <br />
+    @*pulls the timeslot info chosen from the list on the sign up page*@
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="TimeSlot">Time:</label>
+        <div class="col-sm-10">
+            <input class="form-control" value="@ViewBag.SelectedTime" id="TimeSlot" name="TimeSlot" readonly />
+        </div>
+        <br />
+    </div>
 
-    <label asp-for="Name">Name of Group</label>
-    <input asp-for="Name" />
-    <br />
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="Name">Name of Group</label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="Name" />
+            <br />
+        </div>
+    </div>
 
-    <label asp-for="Size">Size of Group</label>
-    <input asp-for="Size" />
-    <br />
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="Size">Size of Group</label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="Size" />
+            <br />
+        </div>
+    </div>
 
-    <label asp-for="Email">Email Address</label>
-    <input asp-for="Email" />
-    <br />
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="Email">Email Address</label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="Email" />
+            <br />
+        </div>
+    </div>
 
-    <label asp-for="PhoneNumber">Phone Number</label>
-    <input asp-for="PhoneNumber" />
-    <br />
+    <div class="form-group">
+        <label class="control-label col-sm-2" asp-for="PhoneNumber">Phone Number</label>
+        <div class="col-sm-10">
+            <input  class="form-control" asp-for="PhoneNumber" />
+            <br />
+        </div>
+    </div>
 
-    <button type="submit">Submit</button>
+    <button  class="btn btn-default" type="submit">Submit</button>
     <div asp-validation-summary="All"></div>
-    @*return the user to the home page*@
 
 </form>
