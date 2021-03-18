@@ -12,10 +12,10 @@ namespace LaytonTempleTours.Controllers
 {
     public class HomeController : Controller
     {
-        private TourDbContext _context { get; set; }
+        private TourDbContext _context { get; set; }        //Sets up variable to be used in the home controller class
 
         private readonly ILogger<HomeController> _logger;
-        //Constructor
+        //Constructor for the controller
         public HomeController(ILogger<HomeController> logger, TourDbContext context)
         {
             _logger = logger;
@@ -29,11 +29,11 @@ namespace LaytonTempleTours.Controllers
 
         public IActionResult ViewAppointments()
         {
-            return View(new TourViewModel
+            return View(new TourViewModel           //Display all of the appointments made in a list
             {
                 GroupInfos = _context.GroupInfos,
                 AvailableTimes = _context.AvailableTimes
-            }); //Dsiplay all of the appointments made in the list
+            }); 
         }
 
         [HttpGet]
@@ -43,21 +43,25 @@ namespace LaytonTempleTours.Controllers
         }
 
         [HttpPost]
-        public IActionResult Form(GroupInfo group)
+        public IActionResult Form(GroupInfo group)          
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid)//On the post from the form, it checks if the model is valid
             {
                 foreach (var x in _context.AvailableTimes)
                 {
-                    if (x.AppointementTime == group.TimeSlot)
+                    if (x.AppointementTime == group.TimeSlot)//Changes the boolean property in the AvailableTimes to the appointment being booked if it is part of a group object
                     {
                         x.SlotBooked = true;
                     }
                 }
-                _context.GroupInfos.Add(group);
-                _context.SaveChanges();
+                _context.GroupInfos.Add(group);//Adds new group to the list
+                _context.SaveChanges();//Saves changes to the DB
+                return View("Index");//Redirect to the home page if successful
             }
-            return View("Index");
+            else {
+                return View(); //If model state is invalid, return form view again, with data validation summary
+            }
+            
         }
 
         [HttpGet]
@@ -67,16 +71,15 @@ namespace LaytonTempleTours.Controllers
             {
                 GroupInfos = _context.GroupInfos,
                 AvailableTimes = _context.AvailableTimes
-                .Where(x => x.SlotBooked == false)
-                //Filter times shown here by the boolean of if the slot has been booked or not
+                .Where(x => x.SlotBooked == false)//Filter times shown here by the boolean of if the slot has been booked or not
             });
         }
 
         [HttpPost]
         public IActionResult SignUp(DateTime time)
         {
-            ViewBag.SelectedTime = time;
-            return View("Form");
+            ViewBag.SelectedTime = time;//Pass the time selected into a ViewBag that will be displayed on the Form.cshtml
+            return View("Form");//Take the user to the form, where time is already filled out, and they just enter extra info about their group
         }
 
         public IActionResult Privacy()
