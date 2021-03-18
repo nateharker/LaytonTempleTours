@@ -1,20 +1,26 @@
-﻿@*pulls in the tourviewmodel*@
+﻿@{
+    ViewData["Title"] = "Pick Time";
+}
+
+@*pulls in the tourviewmodel*@
 @model LaytonTempleTours.Models.ViewModels.TourViewModel
 
 <body>
-    <h1>Sign up for a time slot below</h1>
+    <div class="text-center">
+        <h1>Sign up for a time slot below</h1>
+        <br />
+        @*loops through all the available times*@
+        @foreach (var x in Model.AvailableTimes)
+        {
+            <form asp-action="SignUp" method="post">
+                <label>Time:</label>
+                <input id="time" name="time" value="@x.AppointementTime" />
 
-    @*loops through all the available times*@
-    @foreach (var x in Model.AvailableTimes)
-    { 
-        <form asp-action="SignUp" method="post">
-            <label>Time:</label>
-            <input id="time" name="time" value="@x.AppointementTime"/> 
+                <button class="btn btn-outline-primary" type="submit">Select Time</button>
+                <div asp-validation-summary="All"></div>
 
-            <button class="btn btn-outline-primary" type="submit">Select Time</button>
-            <div asp-validation-summary="All"></div>
-
-        </form>
-    }
+            </form>
+        }
+    </div>
 
 </body>
