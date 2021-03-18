@@ -47,6 +47,13 @@ namespace LaytonTempleTours.Controllers
         {
             if (ModelState.IsValid)
             {
+                foreach (var x in _context.AvailableTimes)
+                {
+                    if (x.AppointementTime == group.TimeSlot)
+                    {
+                        x.SlotBooked = true;
+                    }
+                }
                 _context.GroupInfos.Add(group);
                 _context.SaveChanges();
             }
@@ -69,14 +76,6 @@ namespace LaytonTempleTours.Controllers
         public IActionResult SignUp(DateTime time)
         {
             ViewBag.SelectedTime = time;
-            foreach (var x in _context.AvailableTimes)
-            {
-                if (x.AppointementTime == time)
-                {
-                    x.SlotBooked = true;
-                }
-            }
-            _context.SaveChanges();
             return View("Form");
         }
 
