@@ -1,36 +1,22 @@
 ﻿@*@model LaytonTempleTours.Models.AvailableTime*@
-@model LaytonTempleTours.Models.GroupInfo
+@model string
 
-@*Form: Once the user has selected a time, they will fill out a form that has the time set
-    (i.e. part of the form, but not editable), but also allows the user to enter their information:
-    o Name of Group
-    o Size of Group
-    o Email Address
-    o Phone Number (Optional)
-    When the user submits the data, we want to store their contact information and update the
-    database to show that time slot as taken. After submitting the form, the user should be
-    returned to the Home Page.*@
+@*@model LaytonTempleTours.Models.ViewModels.TourViewModel*@
+@*@model LaytonTempleTours.Models.GroupInfo *@
+
 
 @*x will auto fill from previous date and time chosen on sign up page*@
-@* this is the form for @Model.AppointementTime *@
+@*this is the form for @Model.AppointementTime*@
 <br />
-<form asp-action="SignUp" method="post">
-    @*attach to the DB so these pass thru*@
-    <label asp-for="Name">Name of Group</label>
-    <input asp-for="Name"/>
+<form asp-action="Form" method="post">
+
+    @*attach to partialForm*@
+    @*partial view!*@
+    <label>Time:</label>
+    <input value="@Model" readonly />
     <br />
 
-    <label asp-for="Size">Size of Group</label>
-    <input asp-for="Size"/>
-    <br />
-
-    <label asp-for="Email">Email Address</label>
-    <input asp-for="Email"/>
-    <br />
-
-    <label asp-for="PhoneNumber">Phone Number</label>
-    <input asp-for="PhoneNumber"/>
-    <br />
+    @*<partial name="PartialForm" />*@
 
     <button type="submit">Submit</button>
     <div asp-validation-summary="All"></div>
