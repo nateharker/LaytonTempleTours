@@ -67,7 +67,7 @@ namespace LaytonTempleTours.Controllers
         }
 
         [HttpPost]
-        public IActionResult SignUp(DateTime time, AvailableTime appointment)
+        public IActionResult SignUp(DateTime time)
         {
             ViewBag.SelectedTime = time;
             /*appointment.SlotBooked = true;*/
