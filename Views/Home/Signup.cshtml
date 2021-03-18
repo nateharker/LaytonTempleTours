@@ -1,20 +1,15 @@
-﻿@*@model IEnumerable<AvailableTime>*@
+﻿@*pulls in the tourviewmodel*@
 @model LaytonTempleTours.Models.ViewModels.TourViewModel
-
-@*Sign Up Page: This page will display the available times. Ignore the time slots on the
-    SignUpGenius page. For our purposes, we will say the tours occur every hour on the
-    hour from 8:00 am – 8:00 pm (i.e. the last tour starts at 8:00 pm.) Once the user selects a
-    time, they are routed to a form that has the date info set, but allows the user to enter their
-    info.*@
 
 <body>
     <h1>Sign up for a time slot below</h1>
 
+    @*loops through all the available times*@
     @foreach (var x in Model.AvailableTimes)
     { 
         <form asp-action="SignUp" method="post">
             <label>Time:</label>
-            <input id="time" name="time" value="@x.AppointementTime.ToString()"/>
+            <input id="time" name="time" value="@x.AppointementTime"/> 
 
             <button class="btn btn-outline-primary" type="submit">Select Time</button>
             <div asp-validation-summary="All"></div>
@@ -22,18 +17,4 @@
         </form>
     }
 
-    @*list to print out available times from the model*@
-    @*@foreach (var x in Model.AvailableTimes)
-            {
-                <form asp-action="SignUp" method="post" id="@Model.AvailableTimes">
-                    @*pass in variable name (AppointmentTime) for the date and the time
-        <input type="hidden" value="@x.AvailableTimeId" />
-            <label>@x.AppointementTime</label>
-            <input type="hidden" value="@x.AppointementTime" />
-
-        <button type="submit">Select Time</button>
-        <div asp-validation-summary="All"></div>
-        </form>
-        }
-    *@
 </body>
