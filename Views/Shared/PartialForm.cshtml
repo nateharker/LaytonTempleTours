@@ -4,21 +4,28 @@
 
 @model LaytonTempleTours.Models.GroupInfo
 
-
-
-    @*attach to the DB so these pass thru*@
-    <label asp-for="Name">Name of Group</label>
+@*attach to the DB so these pass thru*@
+<div class="form-group">
+    <label  class="control-label col-sm-2" asp-for="Name">Name of Group</label>
     <input asp-for="Name" />
     <br />
+</div>
 
-    <label asp-for="Size">Size of Group</label>
+<div class="form-group">
+    <label  class="control-label col-sm-2" asp-for="Size">Size of Group</label>
     <input asp-for="Size" />
     <br />
+</div>
 
-    <label asp-for="Email">Email Address</label>
+<div class="form-group">
+    <label class="control-label col-sm-2" asp-for="Email">Email Address</label>
     <input asp-for="Email" />
     <br />
+</div>
 
-    <label asp-for="PhoneNumber">Phone Number</label>
+<div class="form-group">
+    <label class="control-label col-sm-2" asp-for="PhoneNumber">Phone Number</label>
     <input asp-for="PhoneNumber" />
     <br />
+</div>
+
