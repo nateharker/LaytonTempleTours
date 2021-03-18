@@ -1,7 +1,4 @@
-﻿@*put the name of the model here*@
-@*going to list thru all the available times*@
-
-@*I commented this out because the program wouldn't build with it in. -Miles -->  @model IEnumerable<somethinghere>*@
+﻿@model IEnumerable<AvailableTime>
 
 @*Sign Up Page: This page will display the available times. Ignore the time slots on the
     SignUpGenius page. For our purposes, we will say the tours occur every hour on the
@@ -11,13 +8,17 @@
 
 <body>
     <h1>Sign up for time slots below</h1>
-
-    @*list to print out available times from the model*@
-    <ul>
+    <form asp-action="Form" method="post">
+        @*list to print out available times from the model*@
         @foreach (var x in Model)
         {
-            @*pass in variable names for the date and the time*@
-            <li>@x.Day, @x.Time</li>
+            @*pass in variable name (AppointmentTime) for the date and the time*@
+            <label>@x.AppointementTime</label>
+            <input type="radio" name="time" />
+            <br />
         }
-    </ul>
+        <button type="submit">Submit</button>
+        <div asp-validation-summary="All"></div>
+    </form>
+    
 </body>

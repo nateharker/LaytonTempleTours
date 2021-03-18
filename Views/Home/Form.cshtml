@@ -1,8 +1,5 @@
-﻿@page
-@{
-}
-
-@*this is a form page I made -Mallory*@
+﻿@model LaytonTempleTours.Models.AvailableTime
+@*@model LaytonTempleTours.Models.GroupInfo*@
 
 @*Form: Once the user has selected a time, they will fill out a form that has the time set
     (i.e. part of the form, but not editable), but also allows the user to enter their information:
@@ -15,27 +12,28 @@
     returned to the Home Page.*@
 
 @*x will auto fill from previous date and time chosen on sign up page*@
-this is the form for x time on x date
+@* this is the form for @Model.AppointementTime *@
 <br />
-<form>
+<form asp-action="SignUp" method="post">
     @*attach to the DB so these pass thru*@
-    <label>Name of Group</label>
-    <input />
+    <label asp-for="Name">Name of Group</label>
+    <input asp-for="Name"/>
     <br />
 
-    <label>Size of Group</label>
-    <input />
+    <label asp-for="Size">Size of Group</label>
+    <input asp-for="Size"/>
     <br />
 
-    <label>Email Address</label>
-    <input />
+    <label asp-for="Email">Email Address</label>
+    <input asp-for="Email"/>
     <br />
 
-    <label>Phone Number</label>
-    <input />
+    <label asp-for="PhoneNumber">Phone Number</label>
+    <input asp-for="PhoneNumber"/>
     <br />
 
-    @*pass info thru to DB*@
     <button type="submit">Submit</button>
+    <div asp-validation-summary="All"></div>
+    @*return the user to the home page*@
 
 </form>
