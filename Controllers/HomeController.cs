@@ -61,8 +61,7 @@ namespace LaytonTempleTours.Controllers
                 GroupInfos = _context.GroupInfos,
                 AvailableTimes = _context.AvailableTimes
                 .Where(x => x.SlotBooked == false)
-                .OrderBy(x => x.AvailableTimeId) //Filter times shown here by the boolean of if the slot has been booked or not
-                
+                //Filter times shown here by the boolean of if the slot has been booked or not
             });
         }
 
@@ -70,7 +69,14 @@ namespace LaytonTempleTours.Controllers
         public IActionResult SignUp(DateTime time)
         {
             ViewBag.SelectedTime = time;
-            /*appointment.SlotBooked = true;*/
+            foreach (var x in _context.AvailableTimes)
+            {
+                if (x.AppointementTime == time)
+                {
+                    x.SlotBooked = true;
+                }
+            }
+            _context.SaveChanges();
             return View("Form");
         }
 

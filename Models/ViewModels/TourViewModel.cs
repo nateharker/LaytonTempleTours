@@ -7,8 +7,8 @@ namespace LaytonTempleTours.Models.ViewModels
 {
     public class TourViewModel
     {
-        public IEnumerable<AvailableTime> AvailableTimes { get; set; }
-        public IEnumerable<GroupInfo> GroupInfos { get; set; }
+        public IQueryable<AvailableTime> AvailableTimes { get; set; }
+        public IQueryable<GroupInfo> GroupInfos { get; set; }
 
     }
 }
