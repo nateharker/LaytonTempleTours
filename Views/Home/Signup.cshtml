@@ -14,7 +14,7 @@
     { 
         <form asp-action="SignUp" method="post">
             <label>Time:</label>
-            <input id="time" name="time" value="@x.AppointementTime.ToString()"/>
+            <input id="time" name="time" value="@x.AppointementTime"/> 
 
             <button type="submit">Select Time</button>
             <div asp-validation-summary="All"></div>

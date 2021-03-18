@@ -11,11 +11,25 @@
 
     @*attach to partialForm*@
     @*partial view!*@
-    <label>Time:</label>
-    <input value="@ViewBag.SelectedTime" readonly />
+    <label asp-for="TimeSlot">Time:</label>
+    <input value="@ViewBag.SelectedTime" id="TimeSlot" name="TimeSlot" readonly />
     <br />
 
-    <partial name="PartialForm" />
+    <label asp-for="Name">Name of Group</label>
+    <input asp-for="Name" />
+    <br />
+
+    <label asp-for="Size">Size of Group</label>
+    <input asp-for="Size" />
+    <br />
+
+    <label asp-for="Email">Email Address</label>
+    <input asp-for="Email" />
+    <br />
+
+    <label asp-for="PhoneNumber">Phone Number</label>
+    <input asp-for="PhoneNumber" />
+    <br />
 
     <button type="submit">Submit</button>
     <div asp-validation-summary="All"></div>
