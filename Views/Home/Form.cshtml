@@ -1,8 +1,7 @@
 ﻿@*@model LaytonTempleTours.Models.AvailableTime*@
-@model string
 
 @*@model LaytonTempleTours.Models.ViewModels.TourViewModel*@
-@*@model LaytonTempleTours.Models.GroupInfo *@
+@model LaytonTempleTours.Models.GroupInfo
 
 
 @*x will auto fill from previous date and time chosen on sign up page*@
@@ -13,10 +12,10 @@
     @*attach to partialForm*@
     @*partial view!*@
     <label>Time:</label>
-    <input value="@Model" readonly />
+    <input value="@ViewBag.SelectedTime" readonly />
     <br />
 
-    @*<partial name="PartialForm" />*@
+    <partial name="PartialForm" />
 
     <button type="submit">Submit</button>
     <div asp-validation-summary="All"></div>

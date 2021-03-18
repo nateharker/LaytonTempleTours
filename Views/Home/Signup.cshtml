@@ -8,29 +8,32 @@
     info.*@
 
 <body>
-    <h1>Sign up for time slots below</h1>
+    <h1>Sign up for a time slot below</h1>
 
-    <form asp-action="SignUp" method="post">
-        <label>Time:</label>
-        <input id="time" name="time"/>
+    @foreach (var x in Model.AvailableTimes)
+    { 
+        <form asp-action="SignUp" method="post">
+            <label>Time:</label>
+            <input id="time" name="time" value="@x.AppointementTime.ToString()"/>
 
-        <button type="submit">Select Time</button>
-        <div asp-validation-summary="All"></div>
+            <button type="submit">Select Time</button>
+            <div asp-validation-summary="All"></div>
 
-    </form>
+        </form>
+    }
 
     @*list to print out available times from the model*@
     @*@foreach (var x in Model.AvailableTimes)
-        {
-            <form asp-action="SignUp" method="post" id="@Model.AvailableTimes">
-                @*pass in variable name (AppointmentTime) for the date and the time
-    <input type="hidden" value="@x.AvailableTimeId" />
-        <label>@x.AppointementTime</label>
-        <input type="hidden" value="@x.AppointementTime" />
+            {
+                <form asp-action="SignUp" method="post" id="@Model.AvailableTimes">
+                    @*pass in variable name (AppointmentTime) for the date and the time
+        <input type="hidden" value="@x.AvailableTimeId" />
+            <label>@x.AppointementTime</label>
+            <input type="hidden" value="@x.AppointementTime" />
 
-    <button type="submit">Select Time</button>
-    <div asp-validation-summary="All"></div>
-    </form>
-    }
+        <button type="submit">Select Time</button>
+        <div asp-validation-summary="All"></div>
+        </form>
+        }
     *@
 </body>

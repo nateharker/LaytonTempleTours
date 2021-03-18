@@ -68,9 +68,9 @@ namespace LaytonTempleTours.Controllers
         [HttpPost]
         public IActionResult SignUp(string time)
         {
-            /*ViewBag.SelectedTime = time.AppointementTime;*/
+            ViewBag.SelectedTime = time;
             /*time.SlotBooked = true;*/
-            return View("Form", time);
+            return View("Form");
         }
 
         public IActionResult Privacy()
