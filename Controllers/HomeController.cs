@@ -1,4 +1,5 @@
 ﻿using LaytonTempleTours.Models;
+using LaytonTempleTours.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -28,7 +29,11 @@ namespace LaytonTempleTours.Controllers
 
         public IActionResult ViewAppointments()
         {
-            return View(_context.GroupInfos); //Dsiplay all of the appointments made in the list
+            return View(new TourViewModel
+            {
+                GroupInfos = _context.GroupInfos,
+                AvailableTimes = _context.AvailableTimes
+            }); //Dsiplay all of the appointments made in the list
         }
 
         [HttpGet]
@@ -51,9 +56,14 @@ namespace LaytonTempleTours.Controllers
         [HttpGet]
         public IActionResult SignUp()
         {
-            return View(_context.AvailableTimes
+            return View(new TourViewModel
+            {
+                AvailableTimes = _context.AvailableTimes
                 .Where(x => x.SlotBooked == false)
-                .OrderBy(x => x.AvailableTimeId)); //Filter times shown here by the boolean of if the slot has been booked or not
+                .OrderBy(x => x.AvailableTimeId), //Filter times shown here by the boolean of if the slot has been booked or not
+                GroupInfos = _context.GroupInfos
+            });
+
         }
 
         [HttpPost]
