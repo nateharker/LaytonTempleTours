@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LaytonTempleTours.Models
 {
+    //DbContext for both AvailableTime and GroupInfo models
     public class TourDbContext : DbContext
     {
         public TourDbContext (DbContextOptions<TourDbContext> options) : base(options)
